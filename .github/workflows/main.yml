@@ -1,0 +1,19 @@
+name: GitHub Classroom Autograder
+
+on: [push, pull_request]
+
+jobs:
+  autograding:
+    name: Run Autograder
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Student Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run Autograder Script
+        run: python autograder/grade.py
